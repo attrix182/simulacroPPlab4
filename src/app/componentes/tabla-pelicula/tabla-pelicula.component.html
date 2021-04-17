@@ -1,0 +1,27 @@
+<table border=1>
+  <thead>
+    <th>ID</th>
+    <th>Titulo</th>
+    <th>Genero</th>
+    <th>Acciones</th>
+
+  </thead>
+  <tbody>
+
+
+    <tr *ngFor="let pelicula of listadoPeliculas" app-fila-pelicula [unaPeli]="pelicula"
+      (peliculaSeleccionada)="mostrarDetalles($event)">
+      <td class="badge">{{pelicula.id}}</td>
+      <td> {{pelicula.titulo}} </td>
+      <td> {{pelicula.genero}} </td>
+      <td> <button type="button" class="btn btn-info btn-circle" (click)="mostrarDetalles(pelicula)"><i
+            class="fa fa-check"></i>
+        </button></td>
+
+
+    </tr>
+
+
+
+  </tbody>
+</table>

@@ -1,0 +1,40 @@
+<div *ngIf="!nuevaPelicula">
+
+
+    <button class="btn btn-lg btn-warning btn-block"  (click)="hacerNuevaPelicula()">Nuevo </button>
+  
+  
+  </div>
+  <div *ngIf="nuevaPelicula">
+    <h2>{{nuevaPelicula.id}} id</h2>
+    <div>
+      <label>Titulo:
+        <input [(ngModel)]="nuevaPelicula.titulo" placeholder="titulo">
+      </label>
+    </div>
+    <div>
+        <label>Genero:
+          <select [(ngModel)]="nuevoProfesor.materia" >
+            <option value="Accion">Accion</option>
+            <option value="Drama">Drama</option>
+            <option value="Romantica">Romantica</option>
+            <option value="OTRO">OTRO</option>
+          </select>
+          
+        </label>
+      </div>
+      <!--div>
+        <label>Materia:
+         
+          <input readonly="" [(ngModel)]="nuevoProfesor.materia" placeholder="materia">
+        </label>
+      </div-->
+      <img class="card-img-top" src="/assets/imagenes/pordefecto.png" alt="Card image" style="width:70px">
+      <button type="button" class="btn btn-default btn-circle" ><i class="fa fa-cloud-upload"></i>Cambiar</button>
+      <button class="btn btn-lg btn-success btn-block"  (click)="crearPelicula()">Crear</button>
+  
+    
+  
+  
+  </div>
+  
