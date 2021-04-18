@@ -29,7 +29,7 @@ export class PeliculaComponent implements OnInit {
 
   hacerNuevaPelicula()
   {
-    this.nuevaPelicula=new Pelicula("x","x",0);
+    this.nuevaPelicula=new Pelicula(0,"x","x","x", 0, "a");
 
   }
 

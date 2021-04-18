@@ -8,12 +8,12 @@
   <div *ngIf="nuevaPelicula">
     <h2>{{nuevaPelicula.id}} id</h2>
     <div>
-      <label>Titulo:
-        <input [(ngModel)]="nuevaPelicula.titulo" placeholder="titulo">
+      <label>Nombre:
+        <input [(ngModel)]="nuevaPelicula.nombre" placeholder="titulo">
       </label>
     </div>
     <div>
-        <label>Genero:
+        <label>Tipo:
           <select [(ngModel)]="nuevoProfesor.materia" >
             <option value="Accion">Accion</option>
             <option value="Drama">Drama</option>

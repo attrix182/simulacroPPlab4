@@ -5,14 +5,14 @@
   
   <div *ngIf="unaPeli">
     <h2>{{unaPeli.titulo}} </h2>
-   
-  
     <div class="card" style="width:200px">
-        <img class="card-img-top" src="/assets/imagenes/presentacion.jpg" alt="Card image" style="width:100%">
+        <img class="card-img-top" src="{{unaPeli.pathFoto}}" alt="" style="width:100%">
         <div class="card-body">
           <h4 class="card-title">{{unaPeli.id}}</h4>
-          <p class="card-text">Pelicula {{unaPeli.titulo}} ,{{unaPeli.genero}}</p>
-          <a href="#" class="btn btn-danger">Borrar</a>
+          <p class="card-text">Pelicula: <b>{{unaPeli.nombre}}, {{unaPeli.tipo}}
+            ,{{unaPeli.fechaEstreno}}, {{unaPeli.cantidadPublico}}</b>
+          </p>
+          <!-- <a href="#" class="btn btn-danger">Borrar</a> -->
         </div>
       </div>
   </div>
