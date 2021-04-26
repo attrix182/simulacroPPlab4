@@ -1,1 +1,155 @@
-<p>actor-alto works!</p>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>TP PELICULAS</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template 
+    <link href="carousel.css" rel="stylesheet">-->
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">TP PELICULAS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink="/busqueda">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="../actor/alta">Alta Actores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="row">
+        
+        <div class="col">
+        <div class="container">
+  
+
+            <form [formGroup]="forma" (ngSubmit)="enviar()">
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <br>
+                        <h2>Alta Actores</h2>
+                    </div>
+                </div>
+                <div class="row formulario">
+                    <div class="col-md-6 mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
+                            formControlName="nombre">
+                        <small class="invalid"
+                            *ngIf="forma.controls.nombre.errors?.required && forma.controls.nombre.touched">El nombre es
+                            requerido</small>
+                        <small class="invalid"
+                            *ngIf="forma.controls.nombre.errors?.contiene && forma.controls.nombre.touched">Tiene
+                            espacios</small>
+                    </div>
+
+
+                    <div class="col-md-6 mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido">
+                        <small class="invalid">El apellido es requerido</small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="dni" class="form-label">Edad</label>
+                        <input type="number" class="form-control" id="edad" placeholder="Ingrese edad"
+                            formControlName="edad">
+                        <small class="invalid"
+                            *ngIf="forma.controls.edad.errors?.max || forma.controls.edad.errors?.min && forma.controls.edad.touched">Edad
+                            fuera de rango</small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <select class="form-select" id="sexo">
+                            <option value="">Seleccione uno</option>
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                        </select>
+                        <small class="invalid">El sexo es requerido</small>
+                    </div>
+                    <div class="col-md-12 mb-5">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Ingrese email">
+                        <small class="invalid">El email es requerido</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
+                            <label for="recordar" class="form-check-label" for="terminos">
+                                Aceptar términos y condiciones
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-block"
+                            [disabled]="forma.invalid || !forma.controls.terminos.value">
+
+                            Aceptar
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    <div class="col">
+<app-tabla-paises></app-tabla-paises>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+</body>
+
+</html>

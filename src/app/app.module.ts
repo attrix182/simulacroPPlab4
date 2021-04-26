@@ -12,6 +12,9 @@ import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle
 import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 import { PeliculaComponent } from './componentes/pelicula/pelicula.component';
 import { FilaPeliculaComponent } from './componentes/fila-pelicula/fila-pelicula.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 
 
 @NgModule({
@@ -25,11 +28,15 @@ import { FilaPeliculaComponent } from './componentes/fila-pelicula/fila-pelicula
     DetallePeliculaComponent,
     BusquedaComponent,
     PeliculaComponent,
-    FilaPeliculaComponent
+    FilaPeliculaComponent,
+    TablaPaisesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

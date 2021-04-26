@@ -10,7 +10,7 @@
 
   </thead>
   <tbody>
-    <tr *ngFor="let unaPeli of listadoPeliculas" app-fila-pelicula [unaPeli]="pelicula"
+    <tr *ngFor="let unaPeli of listadoPeliculas" app-fila-pelicula 
       (peliculaSeleccionada)="mostrarDetalles($event)">
       <td>{{unaPeli.id}}</td>
       <td>{{unaPeli.nombre}}</td>

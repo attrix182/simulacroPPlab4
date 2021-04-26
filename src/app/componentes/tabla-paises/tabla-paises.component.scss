@@ -1,0 +1,12 @@
+.container {
+    max-width: 600px;
+    padding: 60px;
+    
+background-color: white;
+
+
+    /* SHADOW */
+    -webkit-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+}
