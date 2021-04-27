@@ -22,8 +22,8 @@ export class ActorAltaComponent implements OnInit {
 
     this.forma = new FormGroup({
       'nombre': new FormControl(''),
-      'edad': new FormControl(''),
       'apellido': new FormControl(''),
+      'edad': new FormControl(''),
       'dni': new FormControl(''),
       'sexo': new FormControl(''),
       'email': new FormControl(''),
@@ -32,18 +32,14 @@ export class ActorAltaComponent implements OnInit {
     this.forma = this.FB.group({
 
       'nombre': ['', [Validators.required, this.validadoDeEspacio]],
-      'edad': ['', [Validators.required, Validators.min(10), Validators.max(80)]],
+      'apellido': ['', [Validators.required, this.validadoDeEspacio]],
+      'edad': ['', [Validators.required, Validators.min(1), Validators.max(100)]],
       'terminos': ['', Validators.required],
 
     })
   }
 
 
-
-  enviar()
-  {
-    console.info("objeto formulario", this.forma);
-  }
 
   private validadoDeEspacio(control: AbstractControl): null | object {
     const nombre = control.value;
@@ -56,10 +52,9 @@ export class ActorAltaComponent implements OnInit {
   }
 
 
-  goPaises() {
-    location.assign('/paises');
+  enviar() {
+    console.info("objeto formulario", this.forma);
   }
-  
 
 
 
