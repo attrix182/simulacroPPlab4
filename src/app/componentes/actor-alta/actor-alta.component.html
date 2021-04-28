@@ -110,13 +110,18 @@
                             </div>
 
 
-                            <div class="col-md-6 mb-3">
-                                <label for="pais" class="form-label">Pais</label>
-                                <select class="form-select" id="pais">
-                                    <option value="">Seleccione uno</option>
-                                </select>
-                                <small class="invalid">El pais es requerido</small>
+
+                            <div *ngIf="!pais">
+                                <p> Seleccione un pais de la lista</p>
                             </div>
+
+                            <div class="card col-12" style="max-width: 200px" *ngIf="pais">
+                                <img [src]="pais.flag" class="card-img-top" alt="image pais" />
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ pais.name }}</h5>
+                                </div>
+                            </div>
+
 
                         </div>
                         <div class="row">

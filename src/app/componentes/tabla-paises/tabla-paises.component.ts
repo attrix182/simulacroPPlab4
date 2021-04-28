@@ -1,9 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
 import { ServicioPaisesService } from 'src/app/servicios/servicio-paises.service';
-
-
-
 
 @Component({
   selector: 'app-tabla-paises',
@@ -45,6 +41,7 @@ export class TablaPaisesComponent implements OnInit {
   }
 
   seleccionarPais(pais: any) {
+    console.log(pais);
     this.eventPaisSeleccionado.emit(pais);
   }
 

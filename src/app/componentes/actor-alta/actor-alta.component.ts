@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Pais } from './../../clases/pais';
+import { ActorServiceService } from './../../servicios/actor-service.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-actor-alta',
@@ -8,15 +13,11 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 })
 export class ActorAltaComponent implements OnInit {
 
+  @Input() pais: Pais;
+
   public forma: FormGroup;
 
-  public constructor(private FB: FormBuilder) {
-
-
-  }
-
-
-
+  public constructor(private FB: FormBuilder) {}
 
   ngOnInit() {
 
@@ -27,7 +28,8 @@ export class ActorAltaComponent implements OnInit {
       'dni': new FormControl(''),
       'sexo': new FormControl(''),
       'email': new FormControl(''),
-      'terminos': new FormControl('')
+      'terminos': new FormControl(''),
+      'pais': new FormControl('')
     });
     this.forma = this.FB.group({
 
@@ -53,8 +55,11 @@ export class ActorAltaComponent implements OnInit {
 
 
   enviar() {
+
     console.info("objeto formulario", this.forma);
+
   }
+
 
 
 
