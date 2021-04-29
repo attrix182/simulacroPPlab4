@@ -33,7 +33,7 @@ export class TablaPaisesComponent implements OnInit {
 
     this.paisesService.traerPaises().subscribe(result => {
 
-      console.log(result);
+     // console.log(result);
 
     })
 

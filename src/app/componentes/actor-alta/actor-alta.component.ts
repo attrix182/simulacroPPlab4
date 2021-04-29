@@ -75,6 +75,7 @@ export class ActorAltaComponent implements OnInit {
 
 
       console.log('se envio el Actor');
+      console.log(this.unActor);
 
 
 
