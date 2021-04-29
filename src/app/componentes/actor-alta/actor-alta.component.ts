@@ -1,7 +1,7 @@
 import { Actor } from './../../clases/actor';
 import { Pais } from './../../clases/pais';
 import { ActorServiceService } from './../../servicios/actor-service.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 
@@ -12,7 +12,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
   templateUrl: './actor-alta.component.html',
   styleUrls: ['./actor-alta.component.scss']
 })
-export class ActorAltaComponent implements OnInit {  
+export class ActorAltaComponent implements OnInit {
   public forma: FormGroup;
   unPaisSeleccionado: Pais;
 
@@ -20,8 +20,7 @@ export class ActorAltaComponent implements OnInit {
 
   public constructor(private FB: FormBuilder, private servicioActor: ActorServiceService) { this.unActor = new Actor(); }
 
-  cambiarPais(elPais: any)
-  {
+  cambiarPais(elPais: any) {
     console.log("Cambiando pais");
     console.log(elPais);
     this.unPaisSeleccionado = elPais;
@@ -36,28 +35,31 @@ export class ActorAltaComponent implements OnInit {
       'dni': new FormControl(''),
       'sexo': new FormControl(''),
       'email': new FormControl(''),
-      'terminos': new FormControl(''),
+      'nacionalidad': new FormControl(''),
       'pais': new FormControl('')
     });
     this.forma = this.FB.group({
 
-      'nombre': ['', [Validators.required, this.validadoDeEspacio]],
-      'apellido': ['', [Validators.required, this.validadoDeEspacio]],
+      'nombre': ['', Validators.required],
+      'apellido': ['', Validators.required],
       'edad': ['', [Validators.required, Validators.min(1), Validators.max(100)]],
-      'terminos': ['', Validators.required]
+      'sexo': ['', Validators.required],
+      'nacionalidad': ['', Validators.required]
 
     })
   }
 
   private validadoDeEspacio(control: AbstractControl): null | object {
-    const nombre = control.value;
-    //const tieneEspacios = nombre.includes(' ');
-const tieneEspacios = false; //ARREGLARRRRRRRRRRRRR
+    const nombre = <string> control.value;
+    const tieneEspacios = nombre.includes(' ');
     if (tieneEspacios) {
       return { contiene: true }
 
     } else { return null }
   }
+
+
+
 
 
   enviar() {

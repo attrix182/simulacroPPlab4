@@ -21,6 +21,7 @@ export class ActorServiceService {
 
 
   Crear(actor: Actor): any {
+    
     return this.referenciaAlaColeccion.add({ ...actor });
 
   }

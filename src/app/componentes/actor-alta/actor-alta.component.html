@@ -99,48 +99,39 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="sexo" class="form-label" id="sexo" >Sexo</label>
-                                <select  id="sexo" >
-                                    <option value="">Seleccione uno</option>
+                                <label for="sexo" class="form-label" >Sexo</label>
+                                <select   id="sexo"  formControlName="sexo" [(ngModel)]="unActor.sexo">
+                                    <option value="" disabled="true" selected>Seleccione uno</option>
                                     <option value="F">Femenino</option>
                                     <option value="M">Masculino</option>
                                 </select>
-                                <small class="invalid" >El sexo es requerido</small>
+                                <small class="invalid"  *ngIf="forma.controls.sexo.touched && forma.controls.sexo.errors?.required">El sexo es requerido</small>
                             </div>
 
 
                             <div *ngIf="!unPaisSeleccionado">
-                                <p> Seleccione un pais de la lista</p>
+                                <p> Seleccione un pais de la lista -></p>
                             </div>
 
-                            <div class="card col-12" style="max-width: 200px" *ngIf="unPaisSeleccionado">
+                            <div class="card col-12" style="max-width: 280px; margin: auto;" *ngIf="unPaisSeleccionado">
                                 <img [src]="unPaisSeleccionado.flag" class="card-img-top" alt="image pais" />
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ unPaisSeleccionado.name }}</h5>
+                                    <h5 class="card-title" >{{ unPaisSeleccionado.name }}</h5>
+                                    <input type="text" id="nacionalidad"  class="form-control" formControlName="nacionalidad" [(ngModel)]="unActor.nacionalidad" value="{{unPaisSeleccionado.name}}" readonly>
                                 </div>
                             </div>
-
-
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 mb-5">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="terminos"
-                                        formControlName="terminos">
-                                    <label for="recordar" class="form-check-label" for="terminos">
-                                        Aceptar términos y condiciones
-                                    </label>
-                                </div>
-                            </div>
+                
+                 
                             <div class="col-md-12 d-grid gap-2">
 
                                 <button type="submit" class="btn btn-primary btn-block"
-                                    [disabled]="forma.invalid || !forma.controls.terminos.value" (click)="addActor()">
+                                    (click)="addActor()">
                                     Aceptar
                                 </button>
 
    
 
                             </div>
-                        </div>
+
                     </form>
