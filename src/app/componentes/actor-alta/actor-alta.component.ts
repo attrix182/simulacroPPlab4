@@ -24,6 +24,7 @@ export class ActorAltaComponent implements OnInit {
     console.log("Cambiando pais");
     console.log(elPais);
     this.unPaisSeleccionado = elPais;
+    this.unActor.nacionalidad = elPais.name;
   }
 
   ngOnInit() {
