@@ -49,8 +49,7 @@
         <br>
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
-
-                <app-tabla-paises></app-tabla-paises>
+                <app-tabla-paises (paisSeleccionadoEvent)="cambiarPais($event)"></app-tabla-paises>
             </div>
 
             <div class="col-md-8 order-md-1">
@@ -68,7 +67,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
-                                    formControlName="nombre">
+                                    formControlName="nombre" [(ngModel)]="unActor.nombre">
                                 <small class="invalid"
                                     *ngIf="forma.controls.nombre.errors?.required && forma.controls.nombre.touched">El
                                     nombre es requerido</small>
@@ -81,7 +80,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="apellido" class="form-label">Apellido</label>
                                 <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido"
-                                    formControlName="apellido">
+                                    formControlName="apellido" [(ngModel)]="unActor.apellido">
                                 <small class="invalid"
                                     *ngIf="forma.controls.apellido.errors?.required && forma.controls.apellido.touched">El
                                     apellido es requerido</small>
@@ -93,32 +92,31 @@
                             <div class="col-md-6 mb-3">
                                 <label for="dni" class="form-label">Edad</label>
                                 <input type="number" class="form-control" id="edad" placeholder="Ingrese edad"
-                                    formControlName="edad">
+                                    formControlName="edad" [(ngModel)]="unActor.edad">
                                 <small class="invalid"
                                     *ngIf="forma.controls.edad.errors?.max || forma.controls.edad.errors?.min && forma.controls.edad.touched">Edad
                                     fuera de rango</small>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="sexo" class="form-label">Sexo</label>
-                                <select class="form-select" id="sexo">
+                                <label for="sexo" class="form-label" id="sexo" >Sexo</label>
+                                <select  id="sexo" >
                                     <option value="">Seleccione uno</option>
                                     <option value="F">Femenino</option>
                                     <option value="M">Masculino</option>
                                 </select>
-                                <small class="invalid">El sexo es requerido</small>
+                                <small class="invalid" >El sexo es requerido</small>
                             </div>
 
 
-
-                            <div *ngIf="!pais">
+                            <div *ngIf="!unPaisSeleccionado">
                                 <p> Seleccione un pais de la lista</p>
                             </div>
 
-                            <div class="card col-12" style="max-width: 200px" *ngIf="pais">
-                                <img [src]="pais.flag" class="card-img-top" alt="image pais" />
+                            <div class="card col-12" style="max-width: 200px" *ngIf="unPaisSeleccionado">
+                                <img [src]="unPaisSeleccionado.flag" class="card-img-top" alt="image pais" />
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ pais.name }}</h5>
+                                    <h5 class="card-title">{{ unPaisSeleccionado.name }}</h5>
                                 </div>
                             </div>
 
@@ -135,10 +133,14 @@
                                 </div>
                             </div>
                             <div class="col-md-12 d-grid gap-2">
+
                                 <button type="submit" class="btn btn-primary btn-block"
-                                    [disabled]="forma.invalid || !forma.controls.terminos.value">
+                                    [disabled]="forma.invalid || !forma.controls.terminos.value" (click)="addActor()">
                                     Aceptar
                                 </button>
+
+   
+
                             </div>
                         </div>
                     </form>

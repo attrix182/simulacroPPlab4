@@ -1,3 +1,4 @@
+
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ServicioPaisesService } from 'src/app/servicios/servicio-paises.service';
 
@@ -10,11 +11,11 @@ import { ServicioPaisesService } from 'src/app/servicios/servicio-paises.service
 
 export class TablaPaisesComponent implements OnInit {
 
-  public miPais: string = "";
+  public miPais: string = "";  
 
   public listaPaises: any[] = [];
 
-  @Output() eventPaisSeleccionado: EventEmitter<any> = new EventEmitter<any>();
+  @Output() paisSeleccionadoEvent: EventEmitter<any> = new EventEmitter<any>();  
 
   constructor(private paisesService: ServicioPaisesService) {
 
@@ -40,9 +41,9 @@ export class TablaPaisesComponent implements OnInit {
 
   }
 
-  seleccionarPais(pais: any) {
+  seleccionarPais(pais) {
     console.log(pais);
-    this.eventPaisSeleccionado.emit(pais);
+    this.paisSeleccionadoEvent.emit(pais);
   }
 
 }

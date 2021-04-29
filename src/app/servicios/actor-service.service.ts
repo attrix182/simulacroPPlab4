@@ -1,27 +1,39 @@
+
 import { Injectable } from '@angular/core';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore/';
+import { Actor } from './../clases/actor';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ActorServiceService {
-  private actoresCollection: AngularFirestoreCollection<any>;
-  private nameCollectionDB = 'actores';
+  rutaDeLaColeccion = '/actores';
+  referenciaAlaColeccion: AngularFirestoreCollection<Actor>;
+  referenciaBd: AngularFirestore;
 
-  constructor(private afs: AngularFirestore) {
-    this.actoresCollection = afs.collection<any>(this.nameCollectionDB);
+
+  constructor(private bd: AngularFirestore) {
+    this.referenciaBd = bd;
+    this.referenciaAlaColeccion = bd.collection(this.rutaDeLaColeccion);
+
   }
 
-  public getAllActores(): Observable<any[]> {
-    return this.afs.collection(this.nameCollectionDB).valueChanges();
+
+  Crear(actor: Actor): any {
+    return this.referenciaAlaColeccion.add({ ...actor });
+
   }
 
-  public addActor(actor: any) {
-    return this.actoresCollection.add(actor);
+  public TraerTodos() {
+    return this.referenciaAlaColeccion;
   }
+
+
+  public BuscarActor(actor: Actor) {
+    return this.referenciaBd.collection(this.rutaDeLaColeccion, ref => ref.where("nombre", "==", actor.nombre).where("apellido", "==", actor.apellido).where("edad", "==", actor.edad).where("sexo", "==", actor.sexo).where("nacionalidad", "==", actor.nacionalidad));
+  }
+
+
 }
+

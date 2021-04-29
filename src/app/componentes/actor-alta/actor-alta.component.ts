@@ -1,3 +1,4 @@
+import { Actor } from './../../clases/actor';
 import { Pais } from './../../clases/pais';
 import { ActorServiceService } from './../../servicios/actor-service.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -11,13 +12,20 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
   templateUrl: './actor-alta.component.html',
   styleUrls: ['./actor-alta.component.scss']
 })
-export class ActorAltaComponent implements OnInit {
-
-  @Input() pais: Pais;
-
+export class ActorAltaComponent implements OnInit {  
   public forma: FormGroup;
+  unPaisSeleccionado: Pais;
 
-  public constructor(private FB: FormBuilder) {}
+  public unActor: Actor;
+
+  public constructor(private FB: FormBuilder, private servicioActor: ActorServiceService) { this.unActor = new Actor(); }
+
+  cambiarPais(elPais: any)
+  {
+    console.log("Cambiando pais");
+    console.log(elPais);
+    this.unPaisSeleccionado = elPais;
+  }
 
   ngOnInit() {
 
@@ -36,17 +44,15 @@ export class ActorAltaComponent implements OnInit {
       'nombre': ['', [Validators.required, this.validadoDeEspacio]],
       'apellido': ['', [Validators.required, this.validadoDeEspacio]],
       'edad': ['', [Validators.required, Validators.min(1), Validators.max(100)]],
-      'terminos': ['', Validators.required],
+      'terminos': ['', Validators.required]
 
     })
   }
 
-
-
   private validadoDeEspacio(control: AbstractControl): null | object {
     const nombre = control.value;
-    const tieneEspacios = nombre.includes(' ');
-
+    //const tieneEspacios = nombre.includes(' ');
+const tieneEspacios = false; //ARREGLARRRRRRRRRRRRR
     if (tieneEspacios) {
       return { contiene: true }
 
@@ -56,12 +62,23 @@ export class ActorAltaComponent implements OnInit {
 
   enviar() {
 
-    console.info("objeto formulario", this.forma);
+
+    console.log(this.unPaisSeleccionado);
 
   }
 
+  addActor() {
+
+    this.servicioActor.Crear(this.unActor).then(() => {
+
+
+      console.log('se envio el Actor');
 
 
 
+    })
+
+
+  }
 }
 
