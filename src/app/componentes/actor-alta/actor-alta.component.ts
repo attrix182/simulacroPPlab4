@@ -60,11 +60,7 @@ export class ActorAltaComponent implements OnInit {
   }
 
 
-
-
-
   enviar() {
-
 
     console.log(this.unPaisSeleccionado);
 
@@ -74,12 +70,8 @@ export class ActorAltaComponent implements OnInit {
 
     this.servicioActor.Crear(this.unActor).then(() => {
 
-
       console.log('se envio el Actor');
       console.log(this.unActor);
-
-
-
     })
 
 

@@ -1,1 +1,175 @@
-<p>pelicula-alta works!</p>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>TP PELICULAS</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template 
+    <link href="carousel.css" rel="stylesheet">-->
+</head>
+
+<br><br><br>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">TP PELICULAS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink="/busqueda">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/actor/alta">Alta Actores</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="../peliculas/alta">Alta Peliculas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <!-- <app-tabla-paises (paisSeleccionadoEvent)="cambiarPais($event)"></app-tabla-paises> -->
+            </div>
+
+            <div class="col-md-8 order-md-1">
+
+             
+                <form [formGroup]="this.formPeli" (ngSubmit)="enviar()">
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Nombre</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        placeholder="Nombre de la película"
+                        formControlName="nombre"
+                      />
+                  
+                      <small
+                        class="invalid"
+                        *ngIf="
+                          this.formPeli.get('nombre')?.errors?.required &&
+                          this.formPeli.get('nombre')?.touched
+                        "
+                      >
+                        El nombre es requerido
+                      </small>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Tipo</label>
+                  
+                      <select class="custom-select" formControlName="tipo">
+                        <option selected value="Otros" disabled>Seleccione</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Amor">Amor</option>
+                      </select>
+                  
+                      <small
+                        class="invalid"
+                        *ngIf="
+                          this.formPeli.get('tipo')?.errors?.required &&
+                          this.formPeli.get('tipo')?.touched
+                        "
+                      >
+                        El tipo es requerido
+                      </small>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Fecha de estreno</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        formControlName="fechaDeEstreno"
+                      />
+                  
+                      <small
+                        class="invalid"
+                        *ngIf="
+                          this.formPeli.get('fechaDeEstreno')?.errors?.required &&
+                          this.formPeli.get('fechaDeEstreno')?.touched
+                        "
+                      >
+                        La fecha de estreno es requerida
+                      </small>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Cantidad de público</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        formControlName="cantiadadDePublico"
+                      />
+                  
+                      <small
+                        class="invalid"
+                        *ngIf="
+                          this.formPeli.get('cantiadadDePublico')?.errors?.required &&
+                          this.formPeli.get('cantiadadDePublico')?.touched"
+                      >
+                        La cantidad de público es requerida
+                      </small>
+                  
+              
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Foto de película</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        placeholder="URL de la imagen"
+                        formControlName="imagen"
+                      />
+                  
+                      <small
+                        class="invalid"
+                        *ngIf="
+                          this.formPeli.get('imagen')?.errors?.required &&
+                          this.formPeli.get('imagen')?.touched
+                        "
+                      >
+                        La foto de película es requerida
+                      </small>
+                    </div>
+                  
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block"
+                      [disabled]="this.formPeli.invalid"
+                    >
+                      Crear
+                    </button>
+                    <br>
+                  </form>

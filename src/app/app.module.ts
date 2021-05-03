@@ -22,10 +22,10 @@ import { AngularFireModule } from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
-    PeliculaAltaComponent,
     ActorAltaComponent,
     ActorListadoComponent,
     PeliculaListadoComponent,
+    PeliculaAltaComponent,
     TablaPeliculaComponent,
     DetallePeliculaComponent,
     BusquedaComponent,

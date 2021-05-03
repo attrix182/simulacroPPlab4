@@ -1,0 +1,38 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+	padding-top: 3.5rem;
+	background: url('../../../assets/imagenes/bgdos.jpg') center fixed;
+
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	color: #5a5a5a;
+  }
+  
+  
+
+.container {
+  max-width: 900px;
+  background-color: white;
+
+  -webkit-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+}
+
+
+.border-top { border-top: 2px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top-gray { border-top-color: #adb5bd; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.lh-condensed { line-height: 1.25; }
+
+
+.formulario div[class^="col-md-"] {
+    height: 90px;
+}
+
+.invalid {
+    color: red;
+}
