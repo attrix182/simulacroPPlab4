@@ -125,11 +125,11 @@
 
             <div class="card col-12" style="max-width: 280px; margin: auto;" *ngIf="unPeliSeleccionada">
                 <div class="card-body">
-                    <h5 class="card-title">El actor</h5>
-                    <input type="text" id="actorPrincipal" class="form-control" formControlName="actorPrincipal" value="{{unaPeli.actorPrincipal}}"
-                        readonly>
+                    <!-- <h5 class="card-title" >{{ unPeliSeleccionada }}</h5> -->
+                    <input type="text" id="actorPrincipal"  class="form-control" formControlName="actorPrincipal" [(ngModel)]="unPeliSeleccionada" value="{{unPeliSeleccionada}}" readonly>
                 </div>
             </div>
+
 
 
 
