@@ -35,6 +35,9 @@
                         <a class="nav-link" routerLink="../actor/alta">Alta Actores</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" routerLink="../../peliculas/alta">Alta Peliculas</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
                 </ul>
@@ -49,7 +52,10 @@
         <br>
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
+
+
                 <app-tabla-paises (paisSeleccionadoEvent)="cambiarPais($event)"></app-tabla-paises>
+           
             </div>
 
             <div class="col-md-8 order-md-1">
@@ -99,13 +105,15 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="sexo" class="form-label" >Sexo</label>
-                                <select   id="sexo"  formControlName="sexo" [(ngModel)]="unActor.sexo">
+                                <label for="sexo" class="form-label">Sexo</label>
+                                <select id="sexo" formControlName="sexo" [(ngModel)]="unActor.sexo">
                                     <option value="" disabled="true" selected>Seleccione uno</option>
                                     <option value="F">Femenino</option>
                                     <option value="M">Masculino</option>
                                 </select>
-                                <small class="invalid"  *ngIf="forma.controls.sexo.touched && forma.controls.sexo.errors?.required">El sexo es requerido</small>
+                                <small class="invalid"
+                                    *ngIf="forma.controls.sexo.touched && forma.controls.sexo.errors?.required">El sexo
+                                    es requerido</small>
                             </div>
 
 
@@ -116,22 +124,23 @@
                             <div class="card col-12" style="max-width: 280px; margin: auto;" *ngIf="unPaisSeleccionado">
                                 <img [src]="unPaisSeleccionado.flag" class="card-img-top" alt="image pais" />
                                 <div class="card-body">
-                                    <h5 class="card-title" >{{ unPaisSeleccionado.name }}</h5>
-                                    <input type="text" id="nacionalidad"  class="form-control" formControlName="nacionalidad" [(ngModel)]="unActor.nacionalidad" value="{{unActor.nacionalidad}}" readonly>
+                                    <h5 class="card-title">{{ unPaisSeleccionado.name }}</h5>
+                                    <input type="text" id="nacionalidad" class="form-control"
+                                        formControlName="nacionalidad" [(ngModel)]="unActor.nacionalidad"
+                                        value="{{unActor.nacionalidad}}" readonly>
                                 </div>
                             </div>
                         </div>
-                
-                 
-                            <div class="col-md-12 d-grid gap-2">
 
-                                <button type="submit" class="btn btn-primary btn-block"
-                                    (click)="addActor()">
-                                    Aceptar
-                                </button>
 
-   
+                        <div class="col-md-12 d-grid gap-2">
 
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" (click)="addActor()">
+                                Aceptar
+                            </button>
+
+
+
+                        </div>
 
                     </form>

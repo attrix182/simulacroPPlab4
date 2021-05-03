@@ -12,17 +12,26 @@ export class TablaActoresComponent implements OnInit {
 
   listadoActores$: Observable<any[]>;
 
+
+  flag:number;
+
   @Input()  listadoActores:any;
 
   @Output() actorSeleccionado: EventEmitter<any>= new EventEmitter<any>(); 
 
-  constructor(actoresSVC : ActorServiceService) { 
 
+  
+  constructor(actoresSVC : ActorServiceService) { 
+    this.listadoActores$ = null;
+    console.log(this.listadoActores$)
     this.listadoActores$ = actoresSVC.TraerTodos().valueChanges();
+    console.log(this.listadoActores$)
   }
 
   ngOnInit(): void {
   }
+
+
 
 
   mostrarDetalles(parametroActor)

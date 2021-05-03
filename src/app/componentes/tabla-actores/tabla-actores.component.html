@@ -1,16 +1,21 @@
+<!-- 
+<div class="d-flex justify-content-center pb-3">
+  <div class="spinner-border" role="status" ></div>
+</div> -->
+
 <table class="table table-hover">
     <thead>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>SEXO</th>
-      <th>EDAD</th>
-      <th>NACIONALIDAD</th>
+      <th>Sexo</th>
+      <th>Edad</th>
+      <th>Nacionalidad</th>
   
 
     </thead>
-    <tbody>
+    <tbody >
       <tr *ngFor="let unActor of listadoActores$ | async" app-fila-pelicula 
-      (click)="mostrarDetalles(unActor)">
+      (click)="mostrarDetalles(unActor)" >
         <td>{{unActor.nombre}}</td>
         <td>{{unActor.apellido}}</td>
         <td>{{unActor.sexo}}</td>
