@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 import { AngularFireModule } from '@angular/fire';
+import { TablaActoresComponent } from './componentes/tabla-actores/tabla-actores.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AngularFireModule } from '@angular/fire';
     BusquedaComponent,
     PeliculaComponent,
     FilaPeliculaComponent,
-    TablaPaisesComponent
+    TablaPaisesComponent,
+    TablaActoresComponent
   ],
   imports: [
     BrowserModule,

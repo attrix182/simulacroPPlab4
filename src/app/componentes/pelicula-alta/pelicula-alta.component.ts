@@ -17,9 +17,26 @@ export class PeliculaAltaComponent implements OnInit {
 
   public formPeli: FormGroup;
 
+  unPeliSeleccionada: Pelicula;
+
+  
+  public elActor: Actor;
+
+    
+  public unaPeli: Pelicula;
+
   constructor(private formBuild: FormBuilder, private peliculaSVC: PeliculaService) {
-   
+    this.elActor = new Actor();
+    this.unaPeli = new Pelicula();
   }
+
+  cambiarActor(elActor: any) {
+    console.log("Cambiando actor" + elActor.nombre);
+    console.log(elActor);
+   this.unPeliSeleccionada = elActor.nombre;
+   this.unaPeli.actorPrincipal = elActor.nombre;
+  }
+
 
   ngOnInit() {
 
@@ -27,23 +44,27 @@ export class PeliculaAltaComponent implements OnInit {
       'nombre': new FormControl(''),
       'tipo': new FormControl(''),
       'fechaDeEstreno': new FormControl(''),
-      'cantiadadDePublico': new FormControl(''),
+      'cantidadDePublico': new FormControl(''),
       'imagen': new FormControl(''),
       'alt': new FormControl(''),
+      'actorPrincipal': new FormControl('')
+      
     });
 
     this.formPeli = this.formBuild.group({
       'nombre': ['', Validators.required],
       'tipo': ['', Validators.required],
       'fechaDeEstreno': ['', [Validators.required]],
-      'cantiadadDePublico': ['', Validators.required, Validators.min(1), Validators.max(5000)],
-      'imagen': ['', Validators.required]
-
+      'cantidadDePublico': ['', [Validators.required, Validators.min(1), Validators.max(5000)]],
+      'imagen': ['', Validators.required],
+      'actorPrincipal': ['', Validators.required]
+      
     })
   }
 
   enviar() {
     this.peliculaSVC.Crear(this.formPeli.getRawValue());
     this.formPeli.reset();
+    console.log('Se envio la peli');
   }
 }

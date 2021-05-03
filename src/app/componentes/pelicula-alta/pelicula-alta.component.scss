@@ -8,16 +8,33 @@ body {
 	color: #5a5a5a;
   }
   
-  
+  $grid-breakpoints: (
+  xs: 0,
+  sm: 945px,
+  md: 945px,
+  lg: 945px,
+  xl: 945px
+);
+
+$container-max-widths: (
+  xs: 0,
+  sm: 945px,
+  md: 945px,
+  lg: 945px,
+  xl: 945px
+
+);
 
 .container {
-  max-width: 900px;
-  background-color: white;
 
+  background-color: white;
+  max-width: 1000px;
   -webkit-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
   -moz-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
   box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
 }
+
+
 
 
 .border-top { border-top: 2px solid #e5e5e5; }
@@ -28,9 +45,14 @@ body {
 
 .lh-condensed { line-height: 1.25; }
 
+.formulario
+{
+max-width: 900;
+}
 
-.formulario div[class^="col-md-"] {
-    height: 90px;
+.tablaActores
+{
+min-width: 570px;
 }
 
 .invalid {

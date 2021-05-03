@@ -7,14 +7,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="../../../../favicon.ico">
-
   <title>TP PELICULAS</title>
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- Custom styles for this template 
-    <link href="carousel.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -41,7 +36,6 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
-
       </div>
     </nav>
   </header>
@@ -52,12 +46,6 @@
       <div class="container">
         <h2 class="display-3">Listado</h2>
 
-
-
-        <!-- 
-        <app-pelicula-listado [listadoPeliculas]="ListadoPeliculaPrincipal"
-          (peliculaSeleccionado)="tomarPeliculaParaDetalles($event)"></app-pelicula-listado>
- -->
 
         <app-tabla-pelicula [listadoPeliculas]="ListadoPeliculaPrincipal"
           (peliculaSeleccionado)="tomarPeliculaParaDetalles($event)"></app-tabla-pelicula>
@@ -115,14 +103,7 @@
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-  <script src="../../../../assets/js/vendor/popper.min.js"></script>
-  <script src="../../../../dist/js/bootstrap.min.js"></script>
-  <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-  <script src="../../../../assets/js/vendor/holder.min.js"></script>
+
 </body>
 
 </html>

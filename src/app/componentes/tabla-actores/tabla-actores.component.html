@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>SEXO</th>
+      <th>EDAD</th>
+      <th>NACIONALIDAD</th>
+  
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let unActor of listadoActores$ | async" app-fila-pelicula 
+      (click)="mostrarDetalles(unActor)">
+        <td>{{unActor.nombre}}</td>
+        <td>{{unActor.apellido}}</td>
+        <td>{{unActor.sexo}}</td>
+        <td>{{unActor.edad}}</td>
+        <td>{{unActor.nacionalidad}}</td>
+ 
+      </tr>
+    </tbody>
+  </table>
