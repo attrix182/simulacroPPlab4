@@ -30,9 +30,6 @@ export class PeliculaService {
   }
 
 
-  public BuscarActor(pelicula: Pelicula) {
-    return this.referenciaBd.collection(this.rutaDeLaColeccion, ref => ref.where("nombre", "==", pelicula.nombre).where("apellido", "==", pelicula.actorPrincipal));
-  }
 
 
 }

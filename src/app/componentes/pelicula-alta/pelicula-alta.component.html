@@ -52,9 +52,7 @@
     <div class="container">
         <br>
         <div class="row">
-            <div   class="col-md-6 themed-grid-col">
-                <app-tabla-actores class="tablaActores"  (actorSeleccionado)="cambiarActor($event)"></app-tabla-actores> 
-            </div>
+           
 
         <form [formGroup]="this.formPeli" (ngSubmit)="enviar()" class="col-md-6 sm-8">
             <div class="form-group">
@@ -118,20 +116,24 @@
 
             </div>
 
-
+ 
             <div class="actorPrincipal">
                 <p> Seleccione un actor de la lista -></p>
             </div>
 
-            <div class="card col-12" style="max-width: 280px; margin: auto;" *ngIf="unPeliSeleccionada">
-                <div class="card-body">
-                    <!-- <h5 class="card-title" >{{ unPeliSeleccionada }}</h5> -->
-                    <input type="text" id="actorPrincipal"  class="form-control" formControlName="actorPrincipal" [(ngModel)]="unPeliSeleccionada" value="{{unPeliSeleccionada}}" readonly>
-                </div>
+            <div *ngIf="unActorSeleccionado.length">
+            <ul class="list-group mb-3 card-body overflow-auto" style="height: 180px;" #scrollMe  [scrollTop]="scrollMe">
+                <li type="text" class="list-group-item d-flex justify-content-between lh-condensed elegido" *ngFor="let actor of unActorSeleccionado" disable>
+                    
+                      <input type="text" class="form-control" value="{{actor.apellido}} {{actor.nombre}}" disabled>
+                        <!-- <h6 class="my-0">{{actor.apellido}} {{actor.nombre}}</h6> -->
+                        
+                        <!-- <small class="text-muted">{{pais.region}}</small> -->
+                    
+                    <!-- <img src="{{pais.flag}}" class="bandera" > -->
+                </li>
+              </ul>
             </div>
-
-
-
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Foto de película</label>
@@ -160,3 +162,6 @@
              
       
         </form>
+        <div   class="col-md-6 themed-grid-col">
+            <app-tabla-actores class="tablaActores"  (actorSeleccionado)="agregarActor($event)"></app-tabla-actores> 
+        </div>

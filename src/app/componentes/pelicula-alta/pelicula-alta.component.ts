@@ -17,7 +17,7 @@ export class PeliculaAltaComponent implements OnInit {
 
   public formPeli: FormGroup;
 
-  unPeliSeleccionada: Pelicula;
+  unActorSeleccionado: Array<Actor> = new Array<Actor>();
 
   
   public elActor: Actor;
@@ -30,26 +30,19 @@ export class PeliculaAltaComponent implements OnInit {
     this.unaPeli = new Pelicula();
   }
 
-  cambiarActor(elActor: any) {
-    console.log("Cambiando actor" + elActor.nombre);
-    console.log(elActor);
-   this.unPeliSeleccionada = elActor.nombre;
-   this.unaPeli.actorPrincipal = elActor.nombre;
+  agregarActor(elActor: any) {
+
+   // console.log("Cambiando actor" + elActor.nombre );
+
+    this.unActorSeleccionado.push(elActor);
+
+    this.unaPeli.actores = this.unActorSeleccionado;
+    //console.log(this.unActorSeleccionado)
+  
   }
 
 
   ngOnInit() {
-
-    this.formPeli = new FormGroup({
-      'nombre': new FormControl(''),
-      'tipo': new FormControl(''),
-      'fechaDeEstreno': new FormControl(''),
-      'cantidadDePublico': new FormControl(''),
-      'imagen': new FormControl(''),
-      'alt': new FormControl(''),
-      'actorPrincipal': new FormControl('')
-      
-    });
 
     this.formPeli = this.formBuild.group({
       'nombre': ['', Validators.required],
@@ -57,14 +50,26 @@ export class PeliculaAltaComponent implements OnInit {
       'fechaDeEstreno': ['', [Validators.required]],
       'cantidadDePublico': ['', [Validators.required, Validators.min(1), Validators.max(5000)]],
       'imagen': ['', Validators.required],
-      'actorPrincipal': ['', Validators.required]
+      'actores': ['', Validators.required]
       
     })
   }
 
   enviar() {
-    this.peliculaSVC.Crear(this.formPeli.getRawValue());
-    this.formPeli.reset();
-    console.log('Se envio la peli');
+
+
+    const peliculaNueva = new Pelicula;
+//    peliculaNueva.id= this.listaPeliculas.length+1;
+this.unaPeli.nombre=this.formPeli.value.nombre;
+this.unaPeli.cantidadPublico=this.formPeli.value.cantidadDePublico;
+this.unaPeli.fechaEstreno=this.formPeli.value.fechaDeEstreno;
+this.unaPeli.tipo=this.formPeli.value.tipo;
+this.unaPeli.pathFoto=this.formPeli.value.imagen;
+
+    this.peliculaSVC.Crear(this.unaPeli);
+
+///
+
+    console.log("the peli: " +  peliculaNueva);
   }
 }

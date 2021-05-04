@@ -55,7 +55,7 @@
 
 
                 <app-tabla-paises (paisSeleccionadoEvent)="cambiarPais($event)"></app-tabla-paises>
-           
+
             </div>
 
             <div class="col-md-8 order-md-1">
@@ -102,6 +102,9 @@
                                 <small class="invalid"
                                     *ngIf="forma.controls.edad.errors?.max || forma.controls.edad.errors?.min && forma.controls.edad.touched">Edad
                                     fuera de rango</small>
+                                    <small class="invalid"
+                                    *ngIf=" forma.controls.edad.errors?.required">Se requiere una edad
+                                </small>
                             </div>
 
                             <div class="col-md-6 mb-3">
