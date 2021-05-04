@@ -1,3 +1,4 @@
+import { Pais } from './pais';
 export class Actor {
 
     id: string = '';
@@ -5,6 +6,6 @@ export class Actor {
     apellido: string;
     sexo: string = '';
     edad: string = '';
-    nacionalidad: string = '';
+    nacionalidad: Pais;
 
 }

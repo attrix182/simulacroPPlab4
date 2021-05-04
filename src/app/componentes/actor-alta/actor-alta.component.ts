@@ -24,7 +24,7 @@ export class ActorAltaComponent implements OnInit {
     console.log("Cambiando pais");
     console.log(elPais);
     this.unPaisSeleccionado = elPais;
-    this.unActor.nacionalidad = elPais.name;
+    this.unActor.nacionalidad = elPais;
   }
 
   ngOnInit() {
@@ -44,27 +44,14 @@ export class ActorAltaComponent implements OnInit {
       'nombre': ['', Validators.required],
       'apellido': ['', Validators.required],
       'edad': ['', [Validators.required, Validators.min(1), Validators.max(100)]],
-      'sexo': ['', Validators.required],
-      'nacionalidad': ['', Validators.required]
+      'sexo': ['', Validators.required]
 
     })
   }
 
-  private validadoDeEspacio(control: AbstractControl): null | object {
-    const nombre = <string> control.value;
-    const tieneEspacios = nombre.includes(' ');
-    if (tieneEspacios) {
-      return { contiene: true }
-
-    } else { return null }
-  }
 
 
-  enviar() {
 
-    console.log(this.unPaisSeleccionado);
-
-  }
 
   addActor() {
 
