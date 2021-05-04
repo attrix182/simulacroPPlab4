@@ -15,10 +15,15 @@ export class TablaPeliculaComponent implements OnInit {
 
   listaPeliculas: any;
 
+  tamanioLista:Number;
+
   constructor(private peliculaService: PeliculaService) {     
     this.peliculaService.getAll().subscribe(peliculas =>{  
     this.listadoPeliculas=peliculas;
-    console.log( "a" + this.listadoPeliculas)
+    console.log( "a" + this.listadoPeliculas.length)
+
+    this.tamanioLista =  this.listadoPeliculas.length
+
   })
  }
   ngOnInit(): void {

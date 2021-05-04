@@ -1,14 +1,24 @@
+
+
 <table border=1 class="table table-hover table-dark">
   <thead>
+    
     <th>Nombre</th>
     <th>Tipo</th>
     <th>Fecha</th>
     <th>Publico</th>
     <th>Foto</th>
 
-
+    <th>
+      <div *ngIf="!tamanioLista">
+        <div class="spinner-border" role="status"></div>
+      </div>
+    </th>
   </thead>
   <tbody>
+ 
+
+    
     <tr *ngFor="let unaPeli of listadoPeliculas" app-fila-pelicula 
       (peliculaSeleccionada)="mostrarDetalles($event)"  (click)="mostrarDetalles(unaPeli)">
       <td>{{unaPeli.nombre}}</td>
@@ -16,8 +26,7 @@
       <td>{{unaPeli.fechaEstreno}}</td>
       <td>{{unaPeli.cantidadPublico}}</td>
       <td> <img src="{{unaPeli.pathFoto}}" width="100"> </td>
-     
-
+      <td> <i     class="fa fa-check "></i></td>
     </tr>
   </tbody>
 </table>

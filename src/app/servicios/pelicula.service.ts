@@ -21,6 +21,10 @@ export class PeliculaService {
 
   }
 
+  public TraerTodos() {
+    return this.referenciaAlaColeccion;
+  }
+
 
   Crear(pelicula: Pelicula): any {
     
@@ -28,9 +32,7 @@ export class PeliculaService {
 
   }
 
-  public TraerTodos() {
-    return this.referenciaAlaColeccion;
-  }
+
 
   getAll(){
     return this.peliculas;
