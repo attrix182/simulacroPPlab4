@@ -6,6 +6,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 
 
 
+
 @Component({
   selector: 'app-pelicula-alta',
   templateUrl: './pelicula-alta.component.html',
@@ -19,10 +20,10 @@ export class PeliculaAltaComponent implements OnInit {
 
   unActorSeleccionado: Array<Actor> = new Array<Actor>();
 
-  
+
   public elActor: Actor;
 
-    
+
   public unaPeli: Pelicula;
 
   constructor(private formBuild: FormBuilder, private peliculaSVC: PeliculaService) {
@@ -32,13 +33,13 @@ export class PeliculaAltaComponent implements OnInit {
 
   agregarActor(elActor: any) {
 
-   // console.log("Cambiando actor" + elActor.nombre );
+    // console.log("Cambiando actor" + elActor.nombre );
 
     this.unActorSeleccionado.push(elActor);
 
     this.unaPeli.actores = this.unActorSeleccionado;
     //console.log(this.unActorSeleccionado)
-  
+
   }
 
 
@@ -57,17 +58,27 @@ export class PeliculaAltaComponent implements OnInit {
 
 
     const peliculaNueva = new Pelicula;
-//    peliculaNueva.id= this.listaPeliculas.length+1;
-this.unaPeli.nombre=this.formPeli.value.nombre;
-this.unaPeli.cantidadPublico=this.formPeli.value.cantidadDePublico;
-this.unaPeli.fechaEstreno=this.formPeli.value.fechaDeEstreno;
-this.unaPeli.tipo=this.formPeli.value.tipo;
-this.unaPeli.pathFoto=this.formPeli.value.imagen;
+    //    peliculaNueva.id= this.listaPeliculas.length+1;
+    this.unaPeli.nombre = this.formPeli.value.nombre;
+    this.unaPeli.cantidadPublico = this.formPeli.value.cantidadDePublico;
+    this.unaPeli.fechaEstreno = this.formPeli.value.fechaDeEstreno;
+    this.unaPeli.tipo = this.formPeli.value.tipo;
+    this.unaPeli.pathFoto = this.formPeli.value.imagen;
 
     this.peliculaSVC.Crear(this.unaPeli);
 
-///
+    ///
 
-    console.log("the peli: " +  peliculaNueva);
+    console.log("the peli: " + peliculaNueva);
+  }
+
+
+  eliminarActor(elActor: any) {
+
+    var i = this.unActorSeleccionado.indexOf( elActor );
+    this.unActorSeleccionado.splice(i, 1);
+    this.unaPeli.actores = this.unActorSeleccionado;
+
+ 
   }
 }

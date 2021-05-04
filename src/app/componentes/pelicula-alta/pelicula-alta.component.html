@@ -125,7 +125,13 @@
             <ul class="list-group mb-3 card-body overflow-auto" style="height: 180px;" #scrollMe  [scrollTop]="scrollMe">
                 <li type="text" class="list-group-item d-flex justify-content-between lh-condensed elegido" *ngFor="let actor of unActorSeleccionado" disable>
                     
-                      <input type="text" class="form-control"  value="{{actor.apellido}} {{actor.nombre}}" disabled>
+                      <input type="text" class="form-control"  value="{{actor.apellido}} {{actor.nombre}}"  disabled>
+
+                      <button class="btn btn-danger" (click)="eliminarActor(actor)">
+                        <i  class="fa fa-times"  ></i>
+                    </button>
+
+                      
                         <!-- <h6 class="my-0">{{actor.apellido}} {{actor.nombre}}</h6> -->
                         
                         <!-- <small class="text-muted">{{pais.region}}</small> -->
