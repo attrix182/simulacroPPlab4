@@ -35,7 +35,9 @@ export class PeliculaAltaComponent implements OnInit {
 
     // console.log("Cambiando actor" + elActor.nombre );
 
-    this.unActorSeleccionado.push(elActor);
+    if (this.unActorSeleccionado.includes(elActor) === false) this.unActorSeleccionado.push(elActor);
+    else { console.log('ya esta ese man') }
+    //  this.unActorSeleccionado.push(elActor);
 
     this.unaPeli.actores = this.unActorSeleccionado;
     console.log(this.unActorSeleccionado)
@@ -56,13 +58,13 @@ export class PeliculaAltaComponent implements OnInit {
 
   eliminarActor(elActor: any) {
 
-    var i = this.unActorSeleccionado.indexOf( elActor );
+    var i = this.unActorSeleccionado.indexOf(elActor);
 
     this.unActorSeleccionado.splice(i, 1);
 
     this.unaPeli.actores = this.unActorSeleccionado;
 
-  //console.log(this.unaPeli.actores)
+    //console.log(this.unaPeli.actores)
   }
 
   enviar() {
