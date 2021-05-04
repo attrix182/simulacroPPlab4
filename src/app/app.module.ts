@@ -19,6 +19,7 @@ import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.co
 import { AngularFireModule } from '@angular/fire';
 import { TablaActoresComponent } from './componentes/tabla-actores/tabla-actores.component';
 import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
+import { ListadoPeliculasActorComponent } from './componentes/listado-peliculas-actor/listado-peliculas-actor.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelic
     FilaPeliculaComponent,
     TablaPaisesComponent,
     TablaActoresComponent,
-    ActorPeliculaComponent
+    ActorPeliculaComponent,
+    ListadoPeliculasActorComponent
   ],
   imports: [
     BrowserModule,

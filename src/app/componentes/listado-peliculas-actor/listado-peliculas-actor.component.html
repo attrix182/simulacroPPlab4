@@ -1,0 +1,11 @@
+<ul class="list-group mb-3 card-body overflow-auto" style="height: 280px;" #scrollMe  [scrollTop]="scrollMe">
+    <li style="cursor: pointer" class="list-group-item list-group-item-action d-flex justify-content-between lh-sm"
+    *ngFor="let unaPeli of listaPeliculas | async" app-fila-pelicula (click)="SeSeleccionoPelicula(unaPeli)"
+   >
+        <div >
+            <h6 class="my-0" >{{ unaPeli.nombre }}</h6>
+            <small class="text-muted">{{ unaPeli.tipo }}</small>
+        </div>
+       
+    </li>
+</ul>

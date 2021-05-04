@@ -14,7 +14,7 @@
         <app-tabla-pelicula [listadoPeliculas]="ListadoPeliculaPrincipal"
           (peliculaSeleccionado)="tomarPeliculaParaDetalles($event)"></app-tabla-pelicula> -->
 
-          <app-actor-listado class="tablaActores" ></app-actor-listado>
+          <app-actor-listado class="tablaActores" (eventActorSeleccionado)="CargarActorSeleccionado($event)"></app-actor-listado>
 
 
       </div>
@@ -38,7 +38,7 @@
 
           <div class="card-body">
             <br>
-            <app-detalle-pelicula [unaPeli]="peliculaParaMostrar"></app-detalle-pelicula>
+            <app-listado-peliculas-actor [actorParaMostrar]="actorSeleccionado"></app-listado-peliculas-actor>
 
           </div>
 
