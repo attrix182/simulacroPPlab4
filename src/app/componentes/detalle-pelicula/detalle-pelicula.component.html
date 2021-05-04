@@ -1,18 +1,23 @@
 <div *ngIf="!unaPeli">
-    <p> Seleccione una Pelicula </p>
+  <p> Seleccione una Pelicula </p>
+</div>
+
+
+<div *ngIf="unaPeli">
+  <h2>{{unaPeli.nombre}} </h2>
+  <div class="card bg-dark text-white" style="width:270px;">
+    <img class="card-img-top" src="{{unaPeli.pathFoto}}" alt="" style="width:100%">
+    <div class="card-body">
+
+      <p class="card-text">Pelicula: <b>{{unaPeli.nombre}}</b>
+          <br>
+          Tipo:  <b>{{unaPeli.tipo}}</b>
+          <br>
+          Fecha de estreno:  <b>{{unaPeli.fechaEstreno}} </b>
+          <br>
+          Cantidad de publico:  <b>{{unaPeli.cantidadPublico}}</b>
+      </p>
+      <!-- <a href="#" class="btn btn-danger">Borrar</a> -->
+    </div>
   </div>
-  
-  
-  <div *ngIf="unaPeli">
-    <h2>{{unaPeli.titulo}} </h2>
-    <div class="card bg-dark text-white" style="width:200px">
-        <img class="card-img-top" src="{{unaPeli.pathFoto}}" alt="" style="width:100%">
-        <div class="card-body">
-          <h4 class="card-title">{{unaPeli.id}}</h4>
-          <p class="card-text">Pelicula: <b>{{unaPeli.nombre}}, {{unaPeli.tipo}}
-            ,{{unaPeli.fechaEstreno}}, {{unaPeli.cantidadPublico}}</b>
-          </p>
-          <!-- <a href="#" class="btn btn-danger">Borrar</a> -->
-        </div>
-      </div>
-  </div>
+</div>
