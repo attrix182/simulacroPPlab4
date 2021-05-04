@@ -1,6 +1,5 @@
-<table border=1 class="table table-striped table-dark">
+<table border=1 class="table table-hover table-dark">
   <thead>
-    <th>ID</th>
     <th>Nombre</th>
     <th>Tipo</th>
     <th>Fecha</th>
@@ -11,16 +10,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let unaPeli of listadoPeliculas" app-fila-pelicula 
-      (peliculaSeleccionada)="mostrarDetalles($event)">
-      <td>{{unaPeli.id}}</td>
+      (peliculaSeleccionada)="mostrarDetalles($event)"  (click)="mostrarDetalles(unaPeli)">
       <td>{{unaPeli.nombre}}</td>
       <td>{{unaPeli.tipo}}</td>
       <td>{{unaPeli.fechaEstreno}}</td>
       <td>{{unaPeli.cantidadPublico}}</td>
       <td> <img src="{{unaPeli.pathFoto}}" width="100"> </td>
-      <td> <button type="button" class="btn btn-info btn-circle" (click)="mostrarDetalles(unaPeli)"><i
-            class="fa fa-check"></i>
-        </button></td>
+     
 
     </tr>
   </tbody>

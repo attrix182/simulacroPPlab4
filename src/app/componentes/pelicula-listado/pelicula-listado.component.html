@@ -1,7 +1,6 @@
 <ul class="peliculas">
     <li *ngFor="let unaPeli of listadoPeliculas">
-      <span class="badge">{{unaPeli.id}}</span> {{unaPeli.nombre}} ,{{unaPeli.tipo}}
-      ,{{unaPeli.fechaEstreno}} ,{{unaPeli.cantidadPublico}} ,{{unaPeli.pathFoto}}  <button type="button" class="btn btn-info btn-circle"   (click)="mostrarDetalles(unaPeli)"><i class="fa fa-check"></i>
-      </button>
+      <span class="badge"  (click)="mostrarDetalles(unaPeli)">{{unaPeli.id}}</span> {{unaPeli.nombre}} ,{{unaPeli.tipo}}
+      ,{{unaPeli.fechaEstreno}} ,{{unaPeli.cantidadPublico}} ,{{unaPeli.pathFoto}}
     </li>
   </ul>

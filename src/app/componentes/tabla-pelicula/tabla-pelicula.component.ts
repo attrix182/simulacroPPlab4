@@ -1,3 +1,4 @@
+import { PeliculaService } from './../../servicios/pelicula.service';
 import { Component, OnInit,  Input ,Output,EventEmitter } from '@angular/core';
 import { Pelicula } from 'src/app/clases/pelicula';
 
@@ -12,8 +13,14 @@ export class TablaPeliculaComponent implements OnInit {
 
   @Output() peliculaSeleccionado: EventEmitter<any>= new EventEmitter<any>(); 
 
-  constructor() { }
+  listaPeliculas: any;
 
+  constructor(private peliculaService: PeliculaService) {     
+    this.peliculaService.getAll().subscribe(peliculas =>{  
+    this.listadoPeliculas=peliculas;
+    console.log( "a" + this.listadoPeliculas)
+  })
+ }
   ngOnInit(): void {
   }
 

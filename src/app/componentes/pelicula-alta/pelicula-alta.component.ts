@@ -49,9 +49,7 @@ export class PeliculaAltaComponent implements OnInit {
       'tipo': ['', Validators.required],
       'fechaDeEstreno': ['', [Validators.required]],
       'cantidadDePublico': ['', [Validators.required, Validators.min(1), Validators.max(5000)]],
-      'imagen': ['', Validators.required],
-      'actores': ['', Validators.required]
-      
+      'imagen': ['', Validators.required]
     })
   }
 

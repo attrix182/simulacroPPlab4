@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore/';
 import { Injectable } from '@angular/core';
 import { Pelicula } from '../clases/pelicula';
@@ -10,11 +11,13 @@ export class PeliculaService {
   rutaDeLaColeccion = '/peliculas';
   referenciaAlaColeccion: AngularFirestoreCollection<Pelicula>;
   referenciaBd: AngularFirestore;
-
+  peliculas:Observable<any[]>;
+  
 
   constructor(private bd: AngularFirestore) {
     this.referenciaBd = bd;
     this.referenciaAlaColeccion = bd.collection(this.rutaDeLaColeccion);
+    this.peliculas = this.referenciaAlaColeccion.valueChanges(this.rutaDeLaColeccion)
 
   }
 
@@ -29,7 +32,9 @@ export class PeliculaService {
     return this.referenciaAlaColeccion;
   }
 
-
+  getAll(){
+    return this.peliculas;
+  }
 
 
 }
