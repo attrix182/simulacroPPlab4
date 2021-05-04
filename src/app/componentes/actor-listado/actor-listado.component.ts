@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ActorServiceService } from './../../servicios/actor-service.service';
+import { Actor } from './../../clases/actor';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-actor-listado',
@@ -7,9 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActorListadoComponent implements OnInit {
 
-  constructor() { }
+ 
+  listadoActores$: Observable<any[]>;
+
+
+  flag:number;
+
+  @Input()  listadoActores:any;
+
+  @Output() actorSeleccionado: EventEmitter<any>= new EventEmitter<any>(); 
+
+
+  
+  constructor(actoresSVC : ActorServiceService) { 
+    this.listadoActores$ = null;
+    console.log(this.listadoActores$)
+    this.listadoActores$ = actoresSVC.TraerTodos().valueChanges();
+    console.log(this.listadoActores$)
+  }
 
   ngOnInit(): void {
   }
+
+
+
+
+  mostrarDetalles(parametroActor)
+  {
+  	console.log(parametroActor);
+    this.actorSeleccionado.emit(parametroActor);
+  }
+
+
 
 }
