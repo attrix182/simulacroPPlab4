@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 import { AngularFireModule } from '@angular/fire';
 import { TablaActoresComponent } from './componentes/tabla-actores/tabla-actores.component';
+import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { TablaActoresComponent } from './componentes/tabla-actores/tabla-actores
     PeliculaComponent,
     FilaPeliculaComponent,
     TablaPaisesComponent,
-    TablaActoresComponent
+    TablaActoresComponent,
+    ActorPeliculaComponent
   ],
   imports: [
     BrowserModule,

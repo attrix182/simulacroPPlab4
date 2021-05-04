@@ -1,3 +1,4 @@
+import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 import { PeliculaAltaComponent } from './componentes/pelicula-alta/pelicula-alta.component';
 import { ActorAltaComponent } from './componentes/actor-alta/actor-alta.component';
 import { NgModule } from '@angular/core';
@@ -18,7 +19,8 @@ const routes: Routes = [
   children:
     [
 
-      { path: 'alta', component: ActorAltaComponent }
+      { path: 'alta', component: ActorAltaComponent },
+      { path: 'actorpelicula', component: ActorPeliculaComponent }
     ]
 
 },

@@ -38,7 +38,7 @@ export class PeliculaAltaComponent implements OnInit {
     this.unActorSeleccionado.push(elActor);
 
     this.unaPeli.actores = this.unActorSeleccionado;
-    //console.log(this.unActorSeleccionado)
+    console.log(this.unActorSeleccionado)
 
   }
 
@@ -52,6 +52,17 @@ export class PeliculaAltaComponent implements OnInit {
       'cantidadDePublico': ['', [Validators.required, Validators.min(1), Validators.max(5000)]],
       'imagen': ['', Validators.required]
     })
+  }
+
+  eliminarActor(elActor: any) {
+
+    var i = this.unActorSeleccionado.indexOf( elActor );
+
+    this.unActorSeleccionado.splice(i, 1);
+
+    this.unaPeli.actores = this.unActorSeleccionado;
+
+  //console.log(this.unaPeli.actores)
   }
 
   enviar() {
@@ -73,12 +84,5 @@ export class PeliculaAltaComponent implements OnInit {
   }
 
 
-  eliminarActor(elActor: any) {
 
-    var i = this.unActorSeleccionado.indexOf( elActor );
-    this.unActorSeleccionado.splice(i, 1);
-    this.unaPeli.actores = this.unActorSeleccionado;
-
- 
-  }
 }

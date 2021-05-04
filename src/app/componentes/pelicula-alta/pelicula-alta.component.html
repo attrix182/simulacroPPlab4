@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" routerLink="/busqueda">Home</a>
+                        <a class="nav-link" routerLink="/busqueda">Busqueda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/actor/alta">Alta Actores</a>
@@ -38,6 +38,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" routerLink="../peliculas/alta">Alta Peliculas</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="../../actor/actorpelicula" >Actores Peliculas</a>
+                      </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
@@ -54,7 +57,7 @@
         <div class="row">
            
 
-        <form [formGroup]="this.formPeli" (ngSubmit)="enviar()" class="col-md-6 sm-8">
+        <form [formGroup]="this.formPeli" class="col-md-6 sm-8">
             <div class="form-group">
                 <label for="exampleInputPassword1">Nombre</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nombre de la película"
@@ -131,12 +134,6 @@
                         <i  class="fa fa-times"  ></i>
                     </button>
 
-                      
-                        <!-- <h6 class="my-0">{{actor.apellido}} {{actor.nombre}}</h6> -->
-                        
-                        <!-- <small class="text-muted">{{pais.region}}</small> -->
-                    
-                    <!-- <img src="{{pais.flag}}" class="bandera" > -->
                 </li>
               </ul>
             </div>
@@ -158,7 +155,7 @@
    
                 
 
-            <button type="submit" class="btn btn-primary btn-block" [disabled]="this.formPeli.invalid">
+            <button type="submit" (click)="enviar()" class="btn btn-primary btn-block" [disabled]="this.formPeli.invalid">
                 Crear
             </button>
             <br>
