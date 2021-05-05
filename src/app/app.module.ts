@@ -22,6 +22,7 @@ import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelic
 import { ListadoPeliculasActorComponent } from './componentes/listado-peliculas-actor/listado-peliculas-actor.component';
 import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
 import { PaisActorComponent } from './componentes/pais-actor/pais-actor.component';
+import { ListadoActoresPeliculaComponent } from './componentes/listado-actores-pelicula/listado-actores-pelicula.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { PaisActorComponent } from './componentes/pais-actor/pais-actor.componen
     ActorPeliculaComponent,
     ListadoPeliculasActorComponent,
     DetalleActorComponent,
-    PaisActorComponent
+    PaisActorComponent,
+    ListadoActoresPeliculaComponent
   ],
   imports: [
     BrowserModule,

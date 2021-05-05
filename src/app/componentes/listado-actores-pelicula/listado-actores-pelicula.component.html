@@ -1,0 +1,16 @@
+<div *ngIf='actoresDePeliParaMostrar()'>
+    <div class="container">
+  
+      <div>
+        <ul class="list-group mb-3 card-body overflow-auto" style="height:auto;" #scrollMe [scrollTop]="scrollMe">
+          <li type="text" class="list-group-item d-flex justify-content-between lh-condensed elegido"
+            *ngFor="let actor of actoresDePeliSeleccionada" >
+            <div>
+              <h3 style="color: black;">Actores</h3>
+              <h6>{{actor.nombre}} {{actor.apellido}} </h6>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

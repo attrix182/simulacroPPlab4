@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore/';
+import { Observable } from 'rxjs';
 import { Actor } from './../clases/actor';
 
 
@@ -11,14 +12,20 @@ export class ActorServiceService {
   rutaDeLaColeccion = '/actores';
   referenciaAlaColeccion: AngularFirestoreCollection<Actor>;
   referenciaBd: AngularFirestore;
-
+  actores:Observable<any[]>;
 
   constructor(private bd: AngularFirestore) {
     this.referenciaBd = bd;
     this.referenciaAlaColeccion = bd.collection(this.rutaDeLaColeccion);
 
+    this.actores = this.referenciaAlaColeccion.valueChanges(this.rutaDeLaColeccion)
+
+
   }
 
+  getAll(){
+    return this.actores;
+  }
 
   Crear(actor: Actor): any {
     
