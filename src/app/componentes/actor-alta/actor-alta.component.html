@@ -85,9 +85,10 @@
                             </div>
 
                             <div class="card col-12" style="max-width: 280px; margin: auto;" *ngIf="unPaisSeleccionado">
-                                <img [src]="unPaisSeleccionado.flag" class="card-img-top" alt="image pais" />
+                                <br>
+                                <img [src]="unPaisSeleccionado.flag" class="card-img-top" style="border: 2px solid black;" alt="image pais" />
                                 <div class="card-body">
-                                    <h5 class="card-title" [(ngModel)]="unActor.nacionalidad.name" formControlName="nacionalidad">{{ unPaisSeleccionado.name }}</h5>
+                                    <h5 class="card-title" >{{ unPaisSeleccionado.name }}</h5>
                           
                                 </div>
                             </div>

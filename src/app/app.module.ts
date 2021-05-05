@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire';
 import { TablaActoresComponent } from './componentes/tabla-actores/tabla-actores.component';
 import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 import { ListadoPeliculasActorComponent } from './componentes/listado-peliculas-actor/listado-peliculas-actor.component';
+import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ListadoPeliculasActorComponent } from './componentes/listado-peliculas-
     TablaPaisesComponent,
     TablaActoresComponent,
     ActorPeliculaComponent,
-    ListadoPeliculasActorComponent
+    ListadoPeliculasActorComponent,
+    DetalleActorComponent
   ],
   imports: [
     BrowserModule,
