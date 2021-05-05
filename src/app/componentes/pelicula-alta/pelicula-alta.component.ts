@@ -1,3 +1,4 @@
+import { Router, RouterModule } from '@angular/router';
 import { PeliculaService } from './../../servicios/pelicula.service';
 import { Actor } from './../../clases/actor';
 import { Pelicula } from './../../clases/pelicula';
@@ -26,7 +27,7 @@ export class PeliculaAltaComponent implements OnInit {
 
   public unaPeli: Pelicula;
 
-  constructor(private formBuild: FormBuilder, private peliculaSVC: PeliculaService) {
+  constructor(private formBuild: FormBuilder, private peliculaSVC: PeliculaService, private router: Router) {
     this.elActor = new Actor();
     this.unaPeli = new Pelicula();
   }
@@ -83,6 +84,8 @@ export class PeliculaAltaComponent implements OnInit {
     ///
 
     console.log("the peli: " + peliculaNueva);
+
+    this.router.navigateByUrl("");
   }
 
 

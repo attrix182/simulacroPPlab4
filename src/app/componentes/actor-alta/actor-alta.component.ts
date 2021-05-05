@@ -1,3 +1,4 @@
+import { Router, RouterModule } from '@angular/router';
 import { Actor } from './../../clases/actor';
 import { Pais } from './../../clases/pais';
 import { ActorServiceService } from './../../servicios/actor-service.service';
@@ -18,7 +19,7 @@ export class ActorAltaComponent implements OnInit {
 
   public unActor: Actor;
 
-  public constructor(private FB: FormBuilder, private servicioActor: ActorServiceService) { this.unActor = new Actor(); }
+  public constructor(private FB: FormBuilder, private servicioActor: ActorServiceService, private router:Router) { this.unActor = new Actor(); }
 
   cambiarPais(elPais: any) {
     console.log("Cambiando pais");
@@ -61,7 +62,7 @@ export class ActorAltaComponent implements OnInit {
       console.log(this.unActor);
     })
 
-
+    this.router.navigateByUrl("");
   }
 }
 
