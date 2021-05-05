@@ -25,27 +25,14 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="col-lg-4">
-          <br><br>
-          <img class="rounded-circle"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            alt="Generic placeholder image" width="140" height="140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <div  style="margin: auto">
+            <div class="card-body">
+              <br>
+              <app-listado-peliculas-actor [actorParaMostrar]="actorSeleccionado"></app-listado-peliculas-actor>
+          </div>
         </div><!-- /.col-lg-4 -->
 
         
-        <div class="card bg-dark text-white" style="margin: auto">
-
-          <div class="card-body">
-            <br>
-            <app-listado-peliculas-actor [actorParaMostrar]="actorSeleccionado"></app-listado-peliculas-actor>
-            
-          </div>
-
-
-        </div>
 
         <div class="card" class="col-lg-4">
           <br><br>
@@ -59,7 +46,20 @@
 
       </div><!-- /.row -->
 
-    </div>
+      
+      <div class="card" class="col-lg-4">
+        <br><br>
+        <img class="rounded-circle"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+          alt="Generic placeholder image" width="140" height="140">
+        <h2>Heading</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+
+    </div><!-- /.row -->
+
+
 
 
     <footer class="container">
