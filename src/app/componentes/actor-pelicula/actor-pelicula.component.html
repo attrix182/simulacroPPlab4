@@ -8,38 +8,29 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h4 >Listado de actores</h4>
+        <h4>Listado de actores</h4>
 
-<!-- 
+        <!-- 
         <app-tabla-pelicula [listadoPeliculas]="ListadoPeliculaPrincipal"
           (peliculaSeleccionado)="tomarPeliculaParaDetalles($event)"></app-tabla-pelicula> -->
-
-
-          <app-actor-listado  (actorSeleccionado)="CargarActorSeleccionado($event)"></app-actor-listado>
-
-
+        <app-actor-listado (actorSeleccionado)="CargarActorSeleccionado($event)"></app-actor-listado>
       </div>
     </div>
-
-
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-            <app-listado-peliculas-actor [actorParaMostrar]="actorSeleccionado"></app-listado-peliculas-actor>
-          <!-- <app-altapelicula (eventoCreacionNuevaPelicula)="CargarNuevaPelicula($event)"></app-altapelicula> -->
+          <app-listado-peliculas-actor [actorParaMostrar]="actorSeleccionado"></app-listado-peliculas-actor>
+   
         </div>
-  
+
         <div class="col-md-4">
-            <!-- <app-detalle-actor [actorParaMostrar]="actorSeleccionado"></app-detalle-actor> -->
+          <app-pais-actor [detalleActor]="actorSeleccionado"></app-pais-actor>
+          <!-- <app-detalle-actor [actorParaMostrar]="actorSeleccionado"></app-detalle-actor> -->
           <!-- <app-detallepelicula [peliculaParaMostrar]="peliculaSeleccionada" ></app-detallepelicula> -->
         </div>
-        
-  
         <div class="col-md-4">
           <app-detalle-actor [detalleActor]="actorSeleccionado"></app-detalle-actor>
         </div>
 
       </div>
-  
-

@@ -10,11 +10,11 @@ export class DetalleActorComponent implements OnInit {
 
   constructor() { }
 
-  @Input() detalleActor:Actor
+  @Input() detalleActor: Actor
 
   ngOnInit(): void {
   }
 
-  
+
 
 }

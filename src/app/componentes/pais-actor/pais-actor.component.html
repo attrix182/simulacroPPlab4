@@ -1,0 +1,18 @@
+<div *ngIf='detalleActor != null'>
+    <div class="container">
+  
+      <div>
+        <ul class="list-group mb-3 card-body overflow-auto" style="height:auto;" #scrollMe [scrollTop]="scrollMe">
+  
+          <li type="text" class="list-group-item ">
+            <h3 style="color: black;">Pais</h3>
+            <div>
+                <h6>{{detalleActor.nacionalidad.name}}</h6>
+              <h6>{{detalleActor.nacionalidad.nativeName}}</h6>
+              <img [src]="detalleActor.nacionalidad.flag" alt="bandera del pais" width="60px" height="40px" />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
