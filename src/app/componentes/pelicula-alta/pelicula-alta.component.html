@@ -110,7 +110,7 @@
    
                 
 
-            <button type="submit" (click)="enviar()" class="btn btn-primary btn-block" [disabled]="this.formPeli.invalid">
+            <button type="submit" (click)="enviar()" class="btn btn-primary btn-block" [disabled]="this.formPeli.invalid || !unActorSeleccionado.length">
                 Crear
             </button>
             <br>

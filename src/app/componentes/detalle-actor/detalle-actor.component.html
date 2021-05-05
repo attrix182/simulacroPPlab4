@@ -1,17 +1,15 @@
 <div *ngIf='detalleActor != null'>
   <div class="container">
-
     <div>
       <ul class="list-group mb-3 card-body overflow-auto" style="height:auto;" #scrollMe [scrollTop]="scrollMe">
-
         <li type="text" class="list-group-item ">
           <h3 style="color: black;">Info del actor</h3>
           <div>
             <h6>Nombre: {{detalleActor.nombre}}</h6>
             <h6>Apellido: {{detalleActor.apellido}}</h6>
-         <h6>Sexo: {{detalleActor.sexo}}</h6>
-         <h6>Edad: {{detalleActor.edad}}</h6>
-         <h6>Nacionalidad: {{detalleActor.nacionalidad.name}}</h6>
+            <h6>Sexo: {{detalleActor.sexo}}</h6>
+            <h6>Edad: {{detalleActor.edad}}</h6>
+            <h6>Nacionalidad: {{detalleActor.nacionalidad.name}}</h6>
           </div>
         </li>
       </ul>

@@ -21,7 +21,7 @@
             <div class="col-md-8 order-md-1">
                 <div>
 
-                    <form [formGroup]="forma" >
+                    <form [formGroup]="forma">
                         <div class="row">
                             <div class="col-md-12 mb-5">
                                 <h2>Alta Actores</h2>
@@ -86,18 +86,23 @@
 
                             <div class="card col-12" style="max-width: 280px; margin: auto;" *ngIf="unPaisSeleccionado">
                                 <br>
-                                <img [src]="unPaisSeleccionado.flag" class="card-img-top" style="border: 2px solid black;" alt="image pais" />
+                                <img  [src]="unPaisSeleccionado.flag" class="card-img-top" style="border: 2px solid black;" alt="image pais" />
                                 <div class="card-body">
                                     <h5 class="card-title" >{{ unPaisSeleccionado.name }}</h5>
-                          
+                 
                                 </div>
                             </div>
+            
+
                         </div>
 
 
                         <div class="col-md-12 d-grid gap-2">
+                            <br>
 
-                            <button type="submit" class="btn btn-primary btn-block" (click)="addActor()" [disabled]="this.forma.invalid">
+                      
+
+                            <button type="submit" class="btn btn-primary btn-block" (click)="addActor()" [disabled]="this.forma.invalid || !unPaisSeleccionado" >
                                 Aceptar
                             </button>
 

@@ -2,17 +2,12 @@
 <html lang="en">
 
 <body>
-
-
   <main role="main">
 
     <div class="jumbotron">
       <div class="container">
         <h4>Listado de actores</h4>
 
-        <!-- 
-        <app-tabla-pelicula [listadoPeliculas]="ListadoPeliculaPrincipal"
-          (peliculaSeleccionado)="tomarPeliculaParaDetalles($event)"></app-tabla-pelicula> -->
         <app-actor-listado (actorSeleccionado)="CargarActorSeleccionado($event)"></app-actor-listado>
       </div>
     </div>
@@ -21,18 +16,13 @@
       <div class="row">
         <div class="col-md-4">
           <app-listado-peliculas-actor [actorParaMostrar]="actorSeleccionado"></app-listado-peliculas-actor>
-   
+
         </div>
 
         <div class="col-md-4">
           <app-pais-actor [detalleActor]="actorSeleccionado"></app-pais-actor>
-          <!-- <app-detalle-actor [actorParaMostrar]="actorSeleccionado"></app-detalle-actor> -->
-          <!-- <app-detallepelicula [peliculaParaMostrar]="peliculaSeleccionada" ></app-detallepelicula> -->
         </div>
         <div class="col-md-4">
           <app-detalle-actor [detalleActor]="actorSeleccionado"></app-detalle-actor>
         </div>
-
       </div>
-
-      <br>     <br>     <br>     <br>     <br>     <br>     <br>   

@@ -15,12 +15,10 @@ import { Pelicula } from 'src/app/clases/pelicula';
 })
 export class ListadoPeliculasActorComponent implements OnInit {
 
-
-  @Input() listadoTabla: Pelicula[];
+  //@Input() listadoTabla: Pelicula[];
 
   @Input() actorParaMostrar: Actor;
 
-  @Output() eventActorSeleccionado: EventEmitter<any> = new EventEmitter<any>();
   peliculasDelActor: Array<Pelicula>;
   listaPeliculas: any;
 
@@ -36,32 +34,29 @@ export class ListadoPeliculasActorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  mostrar(){ console.log(this.actorParaMostrar)}
+  mostrar() { console.log(this.actorParaMostrar) }
 
   pelisDelActor() {
     if (this.actorParaMostrar) {
       console.log("entra en IF");
+
       this.peliculasDelActor = new Array<Pelicula>();
+
       for (let index = 0; index < this.listaPeliculas.length; index++) {
-        const element = this.listaPeliculas[index];
-        for (let index = 0; index < element.actores.length; index++) {
-          const actoresPeli = element.actores[index];
+
+        const peli = this.listaPeliculas[index];
+
+        for (let index = 0; index < peli.actores.length; index++) {
+          const actoresPeli = peli.actores[index];
 
           if (actoresPeli.nombre == this.actorParaMostrar.nombre && actoresPeli.apellido == this.actorParaMostrar.apellido) {
-            this.peliculasDelActor.push(element);
+
+            this.peliculasDelActor.push(peli);
+
           }
         }
       }
       return true;
     }
-
-
-
   }
-  SeleccionoPelicula(pelicula: Pelicula) {
-    console.info('pelicula' + pelicula);
-    this.eventActorSeleccionado.emit(pelicula);
-
-  }
-
 }

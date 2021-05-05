@@ -4,6 +4,7 @@ import { Pais } from './../../clases/pais';
 import { ActorServiceService } from './../../servicios/actor-service.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { ObjectUnsubscribedErrorCtor } from 'rxjs/internal/util/ObjectUnsubscribedError';
 
 
 
@@ -19,7 +20,9 @@ export class ActorAltaComponent implements OnInit {
 
   public unActor: Actor;
 
-  public constructor(private FB: FormBuilder, private servicioActor: ActorServiceService, private router:Router) { this.unActor = new Actor(); }
+  public flagPais;
+
+  public constructor(private FB: FormBuilder, private servicioActor: ActorServiceService, private router: Router) { this.unActor = new Actor(); }
 
   cambiarPais(elPais: any) {
     console.log("Cambiando pais");
@@ -46,15 +49,38 @@ export class ActorAltaComponent implements OnInit {
       'apellido': ['', Validators.required],
       'edad': ['', [Validators.required, Validators.min(1), Validators.max(100)]],
       'sexo': ['', Validators.required]
-
     })
+  }
+
+  private validadorPais(control: AbstractControl): null | object
+   {
+    const paisValue = control.value;
+    const existe = paisValue.includes(' ');
+
+    if (existe) {
+
+      return { contiene: true }
+
+    } else{ return null }
+    
+
+  }
+
+  private validadoDeEspacio(control: AbstractControl): null | object {
+    const nombre = control.value;
+    const tieneEspacios = nombre.includes(' ');
+
+    if (tieneEspacios) {
+      return { contiene: true }
+
+    } else { return null }
   }
 
 
 
 
-
   addActor() {
+
 
     this.servicioActor.Crear(this.unActor).then(() => {
 
@@ -62,7 +88,7 @@ export class ActorAltaComponent implements OnInit {
       console.log(this.unActor);
     })
 
-    this.router.navigateByUrl("");
+    this.forma.reset();
   }
 }
 

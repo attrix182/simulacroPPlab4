@@ -85,7 +85,7 @@ export class PeliculaAltaComponent implements OnInit {
 
     console.log("the peli: " + peliculaNueva);
 
-    this.router.navigateByUrl("");
+    this.formPeli.reset();
   }
 
 

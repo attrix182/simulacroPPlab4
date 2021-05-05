@@ -1,18 +1,16 @@
+<div *ngIf='pelisDelActor()'>
+  <div class="container">
 
-<div  *ngIf='pelisDelActor()'>
-
-    <div class="container">
-
+    <div>
+      <ul class="list-group mb-3 card-body overflow-auto" style="height:auto;" #scrollMe [scrollTop]="scrollMe">
+        <li type="text" class="list-group-item d-flex justify-content-between lh-condensed elegido"
+          *ngFor="let pelicula of peliculasDelActor" >
           <div>
-        <ul class="list-group mb-3 card-body overflow-auto" style="height:auto;" #scrollMe  [scrollTop]="scrollMe">
-          <li type="text" class="list-group-item d-flex justify-content-between lh-condensed elegido" *ngFor="let pelicula of peliculasDelActor" (click)="SeleccionoPelicula(pelicula)">
-              <div>
-                <h3>Peliculas</h3>
-                  <h6>{{pelicula.nombre}}</h6>
-
-              </div>
-          </li>
-        </ul>
-      </div>
+            <h3 style="color: black;">Peliculas</h3>
+            <h6>{{pelicula.nombre}}</h6>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
+</div>
