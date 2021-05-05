@@ -1,5 +1,5 @@
 import { Actor } from './../../clases/actor';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Pelicula } from "../../clases/pelicula"
 
 @Component({
@@ -7,14 +7,14 @@ import { Pelicula } from "../../clases/pelicula"
   templateUrl: './actor-pelicula.component.html',
   styleUrls: ['./actor-pelicula.component.scss']
 })
+
+
 export class ActorPeliculaComponent implements OnInit {
 
- 
+
   peliculaParaMostrar:Pelicula;
 
   actorSeleccionado: Actor;
-
-
 
   unActor: Actor;
 
@@ -23,11 +23,16 @@ export class ActorPeliculaComponent implements OnInit {
   }
 
   CargarActorSeleccionado(actor: Actor){
+    console.log("WORKS");
+
     this.actorSeleccionado = actor;
+
     console.log("actor selec " + actor);
   }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -13,6 +13,7 @@ export class ActorListadoComponent implements OnInit {
  
   listadoActores$: Observable<any[]>;
 
+  actoresDePeliSeleccionada: any;
 
   flag:number;
 
@@ -24,7 +25,7 @@ export class ActorListadoComponent implements OnInit {
   
   constructor(actoresSVC : ActorServiceService) { 
     this.listadoActores$ = null;
-    console.log(this.listadoActores$)
+    //console.log(this.listadoActores$)
     this.listadoActores$ = actoresSVC.TraerTodos().valueChanges();
     console.log(this.listadoActores$)
   }
@@ -37,8 +38,15 @@ export class ActorListadoComponent implements OnInit {
 
   mostrarDetalles(parametroActor)
   {
-  	console.log(parametroActor);
+  	console.log("emito: " + parametroActor);
     this.actorSeleccionado.emit(parametroActor);
+  }
+
+  actoresDePeliParaMostrar(){
+    if(this.listadoActores){
+      this.actoresDePeliSeleccionada = this.listadoActores.actores;
+      return true;
+    }
   }
 
 

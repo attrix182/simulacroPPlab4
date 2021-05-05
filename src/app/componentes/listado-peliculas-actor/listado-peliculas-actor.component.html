@@ -1,11 +1,20 @@
-<ul class="list-group mb-3 card-body overflow-auto" style="height: 280px;" #scrollMe  [scrollTop]="scrollMe">
-    <li style="cursor: pointer" class="list-group-item list-group-item-action d-flex justify-content-between lh-sm"
-    *ngFor="let unaPeli of listaPeliculas | async" app-fila-pelicula (click)="SeSeleccionoPelicula(unaPeli)"
-   >
-        <div >
-            <h6 class="my-0" >{{ unaPeli.nombre }}</h6>
-            <small class="text-muted">{{ unaPeli.tipo }}</small>
-        </div>
-       
-    </li>
-</ul>
+
+<div class="jumbotron" *ngIf='pelisDelActor()'>
+
+    <div class="container">
+        <h2 style="color: black;">Peliculas</h2>
+        <br>
+      
+        <div>
+        <ul class="list-group mb-3 card-body overflow-auto" style="height: 200px;" #scrollMe  [scrollTop]="scrollMe">
+          <li type="text" class="list-group-item d-flex justify-content-between lh-condensed elegido" *ngFor="let pelicula of peliculasDelActor" (click)="SeleccionoPelicula(pelicula)">
+              <div>
+                  <h6 style="color: black;">{{pelicula.nombre}}</h6>
+
+              </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>

@@ -20,7 +20,7 @@
 
     
     <tr *ngFor="let unaPeli of listadoPeliculas" app-fila-pelicula 
-      (peliculaSeleccionada)="mostrarDetalles($event)"  (click)="mostrarDetalles(unaPeli)">
+      (peliculaSeleccionado)="mostrarDetalles($event)"  (click)="mostrarDetalles(unaPeli)">
       <td>{{unaPeli.nombre}}</td>
       <td>{{unaPeli.tipo}}</td>
       <td>{{unaPeli.fechaEstreno}}</td>

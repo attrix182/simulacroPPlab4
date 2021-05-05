@@ -14,7 +14,7 @@
         <app-tabla-pelicula [listadoPeliculas]="ListadoPeliculaPrincipal"
           (peliculaSeleccionado)="tomarPeliculaParaDetalles($event)"></app-tabla-pelicula> -->
 
-          <app-actor-listado class="tablaActores" (eventActorSeleccionado)="CargarActorSeleccionado($event)"></app-actor-listado>
+          <app-actor-listado  (actorSeleccionado)="CargarActorSeleccionado($event)"></app-actor-listado>
 
 
       </div>
@@ -34,12 +34,14 @@
           <p>Donec sed odio dui.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+
+        
         <div class="card bg-dark text-white" style="margin: auto">
 
           <div class="card-body">
             <br>
             <app-listado-peliculas-actor [actorParaMostrar]="actorSeleccionado"></app-listado-peliculas-actor>
-
+            
           </div>
 
 

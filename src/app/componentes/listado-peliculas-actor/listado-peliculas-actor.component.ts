@@ -1,9 +1,11 @@
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore/';
 import { PeliculaService } from './../../servicios/pelicula.service';
 import { ActorServiceService } from './../../servicios/actor-service.service';
 import { Actor } from './../../clases/actor';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pelicula } from 'src/app/clases/pelicula';
+
 
 
 @Component({
@@ -13,26 +15,31 @@ import { Pelicula } from 'src/app/clases/pelicula';
 })
 export class ListadoPeliculasActorComponent implements OnInit {
 
+
   @Input() listadoTabla: Pelicula[];
+
   @Input() actorParaMostrar: Actor;
-  @Output() eventPeliculaSeleccionada: EventEmitter<any> = new EventEmitter<any>();
+
+  @Output() eventActorSeleccionado: EventEmitter<any> = new EventEmitter<any>();
   peliculasDelActor: Array<Pelicula>;
   listaPeliculas: any;
-  
+
 
   constructor(private peliculaService: PeliculaService) {
-   
-    this.peliculaService.getAll().subscribe(peliculas =>{
-      
-      this.listaPeliculas=peliculas;
+
+    this.peliculaService.getAll().subscribe(peliculas => {
+
+      this.listaPeliculas = peliculas;
     })
   }
 
   ngOnInit(): void {
   }
 
-  pelisDelActor(){
-    if(this.actorParaMostrar){
+  mostrar(){ console.log(this.actorParaMostrar)}
+
+  pelisDelActor() {
+    if (this.actorParaMostrar) {
       console.log("entra en IF");
       this.peliculasDelActor = new Array<Pelicula>();
       for (let index = 0; index < this.listaPeliculas.length; index++) {
@@ -40,19 +47,20 @@ export class ListadoPeliculasActorComponent implements OnInit {
         for (let index = 0; index < element.actores.length; index++) {
           const actoresPeli = element.actores[index];
 
-          if(actoresPeli.nombre == this.actorParaMostrar.nombre && actoresPeli.apellido==this.actorParaMostrar.apellido){
+          if (actoresPeli.nombre == this.actorParaMostrar.nombre && actoresPeli.apellido == this.actorParaMostrar.apellido) {
             this.peliculasDelActor.push(element);
           }
-        }        
+        }
       }
       return true;
     }
 
 
+
   }
-  SeSeleccionoPelicula(pelicula: Pelicula){
-    console.info('pelicula'+ pelicula);
-    this.eventPeliculaSeleccionada.emit(pelicula);
+  SeleccionoPelicula(pelicula: Pelicula) {
+    console.info('pelicula' + pelicula);
+    this.eventActorSeleccionado.emit(pelicula);
 
   }
 
